@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goodnight Angel 🥰</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--purple:#7c4dbd;--lavender:#c9b8f0;--gold:#d4a84b;--deep:#03020c;--soft:#e8e0ff}
+html,body{height:100%;overflow-x:hidden}
+body{background:var(--deep);font-family:'Cormorant Garamond',serif;color:var(--soft);min-height:100vh}
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+.shoot{position:fixed;width:2px;height:2px;background:#fff;border-radius:50%;pointer-events:none;z-index:1;opacity:0;animation:shoot linear infinite}
+@keyframes shoot{0%{transform:translate(0,0) rotate(45deg);opacity:1;width:2px;height:60px}100%{transform:translate(300px,300px) rotate(45deg);opacity:0;width:0;height:0}}
+.particle{position:fixed;pointer-events:none;z-index:1;opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(100vh) scale(0);opacity:0}20%{opacity:.7}80%{opacity:.4}100%{transform:translateY(-60px) scale(1.2);opacity:0}}
+.page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;z-index:2;padding:40px 24px;text-align:center}
+#hero{background:radial-gradient(ellipse 80% 70% at 50% 40%,#120825 0%,var(--deep) 70%)}
+.moon{font-size:5rem;animation:moonrise 3s ease-out both,moonpulse 4s 3s ease-in-out infinite}
+@keyframes moonrise{from{transform:translateY(60px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes moonpulse{0%,100%{filter:drop-shadow(0 0 10px rgba(212,168,75,.3))}50%{filter:drop-shadow(0 0 30px rgba(212,168,75,.7))}}
+.hero-title{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(2.2rem,8vw,4rem);color:var(--lavender);line-height:1.25;text-shadow:0 0 40px rgba(124,77,189,.6);margin:24px 0 10px;animation:fadein 1.5s 1s both}
+.hero-sub{font-size:1.15rem;color:rgba(201,184,240,.55);letter-spacing:.18em;text-transform:uppercase;animation:fadein 1.5s 1.6s both}
+.hero-wish{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;color:var(--gold);margin-top:18px;animation:fadein 1.5s 2.2s both;text-shadow:0 0 20px rgba(212,168,75,.4)}
+@keyframes fadein{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.scroll-hint{font-size:.8rem;color:rgba(201,184,240,.3);letter-spacing:.22em;text-transform:uppercase;margin-top:60px;animation:float 2.5s ease-in-out infinite,fadein 1s 3s both}
+@keyframes float{0%,100%{transform:translateY(0);opacity:.3}50%{transform:translateY(7px);opacity:.7}}
+.divider{width:160px;height:1px;background:linear-gradient(90deg,transparent,var(--purple),transparent);margin:18px auto}
+.orn{color:var(--gold);letter-spacing:.3em;font-size:.9rem;margin:6px 0}
+#message{background:radial-gradient(ellipse 70% 80% at 50% 40%,#0e0520 0%,var(--deep) 65%)}
+.msg-card{background:linear-gradient(145deg,rgba(18,5,40,.95),rgba(8,3,20,.95));border:1px solid rgba(124,77,189,.2);border-radius:22px;padding:48px 36px;max-width:540px;width:100%;box-shadow:0 0 80px rgba(124,77,189,.12),0 30px 60px rgba(0,0,0,.5);position:relative;overflow:hidden}
+.msg-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 35% at 50% 0%,rgba(124,77,189,.08),transparent);pointer-events:none}
+.msg-top{font-size:.76rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(201,184,240,.35);margin-bottom:28px}
+.msg-salute{font-family:'Playfair Display',serif;font-style:italic;font-size:1.7rem;color:var(--lavender);margin-bottom:18px}
+.msg-body{font-style:italic;font-size:1.05rem;line-height:1.95;color:rgba(220,210,250,.7);margin-bottom:26px}
+.msg-body p{margin-bottom:14px}
+.msg-sign{font-family:'Playfair Display',serif;font-style:italic;font-size:1.25rem;color:var(--lavender);text-align:right}
+.msg-icons{text-align:right;font-size:1.1rem;margin-top:6px}
+#dreams{background:radial-gradient(ellipse 80% 60% at 70% 50%,#0a041e 0%,var(--deep) 65%)}
+.dream-title{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.4rem,5vw,2.1rem);color:var(--gold);margin-bottom:30px;text-shadow:0 0 25px rgba(212,168,75,.3)}
+.dream-verse{max-width:460px;font-style:italic;font-size:1.06rem;line-height:2.1;color:rgba(220,210,250,.78)}
+.dream-verse p{margin-bottom:10px;opacity:0;transform:translateY(14px);transition:all .8s ease}
+.dream-verse p.visible{opacity:1;transform:translateY(0)}
+#closing{background:radial-gradient(ellipse 80% 70% at 50% 50%,#120825 0%,var(--deep) 70%)}
+.close-moon{font-size:3.5rem;margin-bottom:20px;animation:moonpulse 4s ease-in-out infinite}
+.close-text{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.3rem,5vw,2rem);color:var(--lavender);margin-bottom:8px}
+.close-forever{font-size:.82rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(201,184,240,.35);margin-bottom:16px}
+.watermark{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(124,77,189,.28);margin-top:60px;padding-bottom:28px;line-height:2}
+.fade-in{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+
+<section class="page" id="hero">
+  <div class="moon">🌙</div>
+  <h1 class="hero-title">Goodnight,<br>Angel</h1>
+  <p class="hero-sub">A wish sent your way</p>
+  <p class="hero-wish">Take care 🥰</p>
+  <div class="divider" style="margin-top:28px"></div>
+  <div class="orn">✦ &nbsp; 🌟 &nbsp; ✦</div>
+  <p class="scroll-hint">↓ &nbsp; scroll &nbsp; ↓</p>
+</section>
+
+<section class="page" id="message">
+  <div class="msg-card fade-in">
+    <div class="msg-top">🌙 &nbsp; A Goodnight Wish &nbsp; 🌙</div>
+    <div class="msg-salute">Dearest Angel,</div>
+    <div class="msg-body">
+      <p>As the night wraps itself around the world, know that someone out here is thinking of you — hoping your pillow is soft, your mind is quiet, and your heart is at peace.</p>
+      <p>You deserve a night full of the most beautiful dreams. Let go of everything heavy. Let the stars keep watch over you while you rest.</p>
+      <p>You are so cherished. Never forget that.</p>
+    </div>
+    <div class="msg-sign">Goodnight Angel 🥰</div>
+    <div class="msg-icons">🌙 ✨ 💜</div>
+  </div>
+</section>
+
+<section class="page" id="dreams">
+  <h2 class="dream-title fade-in">Dream Softly</h2>
+  <div class="dream-verse fade-in">
+    <p>Close your eyes, let the stars appear,</p>
+    <p>The night is soft, and warmth is near —</p>
+    <p>In every dream may you find rest,</p>
+    <p>For you, my Angel, deserve the best.</p>
+    <div class="divider" style="margin:22px auto"></div>
+    <p>May moonlight find you, gentle, bright,</p>
+    <p>And carry you through this quiet night,</p>
+    <p>Till morning comes with golden hue —</p>
+    <p>Till then, sweet dreams... take care of you.</p>
+  </div>
+</section>
+
+<section class="page" id="closing">
+  <div class="close-moon">🌙</div>
+  <p class="close-text fade-in">Sleep well,<br>Dream beautifully.</p>
+  <p class="close-forever fade-in">✦ &nbsp; always cherished &nbsp;·&nbsp; always cared for &nbsp; ✦</p>
+  <div class="divider"></div>
+  <div style="font-size:1.8rem;margin-top:20px">💜 ✨ 💜</div>
+  <p class="watermark">
+    ~ Goodnight Angel · Take care ~<br>
+    A wish encoded with care · Sweet dreams always
+  </p>
+</section>
+
+<script>
+const canvas=document.getElementById('stars'),ctx=canvas.getContext('2d');
+function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}
+resize();window.addEventListener('resize',resize);
+const stars=Array.from({length:200},()=>({
+  x:Math.random(),y:Math.random(),
+  r:Math.random()*1.6+.2,
+  speed:Math.random()*.003+.001,
+  phase:Math.random()*Math.PI*2,
+  gold:Math.random()<.15
+}));
+function drawStars(t){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  stars.forEach(s=>{
+    const a=.1+.8*Math.abs(Math.sin(s.phase+t*s.speed));
+    ctx.beginPath();
+    ctx.arc(s.x*canvas.width,s.y*canvas.height,s.r,0,Math.PI*2);
+    ctx.fillStyle=s.gold?`rgba(212,180,80,${a})`:`rgba(200,190,255,${a})`;
+    ctx.fill();
+  });
+  requestAnimationFrame(drawStars);
+}
+drawStars(0);
+const emojis=['✨','💫','🌟','⭐','💜'];
+for(let i=0;i<16;i++){
+  const el=document.createElement('div');
+  el.className='particle';
+  el.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+  el.style.cssText=`left:${Math.random()*100}vw;font-size:${.7+Math.random()*.8}rem;animation-duration:${10+Math.random()*14}s;animation-delay:${Math.random()*14}s`;
+  document.body.appendChild(el);
+}
+for(let i=0;i<5;i++){
+  const el=document.createElement('div');
+  el.className='shoot';
+  el.style.cssText=`left:${Math.random()*60}vw;top:${Math.random()*40}vh;animation-duration:${3+Math.random()*4}s;animation-delay:${Math.random()*20}s`;
+  document.body.appendChild(el);
+}
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:.12});
+document.querySelectorAll('.fade-in,.dream-verse p').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
